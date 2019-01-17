@@ -46,24 +46,19 @@ const removeItem = function (event) {
 
 const main = function () {
 
-  // attach event for add
+  
   $('#js-shopping-list-form').on('submit', addItem);
 
   $('.shopping-list').on('click', 'button', (event) => {
 
-    const button = $(event.target);
+    const button = $(event.currentTarget);
 
-    console.log(button.text());
-
-    if (button.hasClass('shopping-item-toggle') || button.find('.button-label').text('check')) {
+    if (button.hasClass('shopping-item-toggle')) {
       toggleItem(event);
     }
 
-    // Not sure why we need to use else here, actually the else causes problems too
-
-    else if (button.hasClass('shopping-item-delete') || button.find('.button-label').text('delete')) {
+    if (button.hasClass('shopping-item-delete')) {
       removeItem(event);
-
     }
   });
 
