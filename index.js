@@ -6,6 +6,10 @@ const addItem = function (event) {
 
   const itemInput = $('#shopping-list-entry');
   const itemList = $('.shopping-list');
+  
+  if (itemInput.val().length === 0) {
+    return
+  }
 
   itemList.append(
     `<li>
@@ -46,7 +50,7 @@ const removeItem = function (event) {
 
 const main = function () {
 
-  
+
   $('#js-shopping-list-form').on('submit', addItem);
 
   $('.shopping-list').on('click', 'button', (event) => {
